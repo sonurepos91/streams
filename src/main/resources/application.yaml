@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: streams
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nationalDatabase
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: HikariPool
+      auto-commit: true
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      idle-timeout: 60000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 9060
+  servlet:
+    context-path: /country
+
+
